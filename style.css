@@ -1,0 +1,439 @@
+:root {
+    --primary-color: #333;
+    --secondary-color: #666;
+    --accent-color: #8B1A1A; /* Bordeaux */
+    --background-color: #f9f9f9;
+    --card-background: #fff;
+    --border-color: #e0e0e0;
+    --text-color: #333;
+    --error-color: #d32f2f;
+    --success-color: #388e3c;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+    --primary-color: #f0f0f0;
+    --secondary-color: #aaa;
+    --accent-color: #c13636; /* Bordeaux légèrement plus clair pour contraste */
+    --background-color: #121212;
+    --card-background: #1e1e1e;
+    --border-color: #333;
+    --text-color: #f0f0f0;
+    --error-color: #ef5350;
+    --success-color: #4caf50;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header */
+header {
+    background-color: var(--card-background);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+#logo-link {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    background-color: var(--background-color);
+    padding: 2px;
+    transition: transform 0.2s ease;
+}
+
+#logo-link:hover .logo {
+    transform: scale(1.15);
+}
+
+#logo-link:active .logo {
+    transform: scale(0.9);
+    transition: transform 0.1s ease;
+}
+
+header h1 {
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+#darkModeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    transition: color var(--transition-speed);
+}
+
+#darkModeToggle:hover {
+    color: var(--accent-color);
+}
+
+/* Form Section */
+#search-section {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border: 1px solid var(--border-color);
+}
+
+#weather-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+input[type="text"] {
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: border-color var(--transition-speed);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+}
+
+.slider-value {
+    text-align: center;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+legend {
+    padding: 0 0.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.8rem;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--accent-color);
+}
+
+.submit-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    justify-self: start;
+}
+
+.submit-btn:hover {
+    background-color: rgba(139, 26, 26, 0.9);
+}
+
+/* Results Section */
+#results-section {
+    margin-bottom: 2rem;
+}
+
+#location-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#city-name {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+#coordinates-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+#map-container {
+    height: 550px;  /* Augmenté de 300px à 400px */
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#forecast-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Organisation des prévisions météo pour tablettes et ordinateurs */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    #map-container {
+        height: 300px;  /* Maintenir la hauteur originale sur mobile */
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+
+    #forecast-container {
+        grid-template-columns: 1fr;
+    }
+
+    #coordinates-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .logo {
+        width: 50px;  /* Augmenté de 35px à 50px */
+        height: 50px; /* Augmenté de 35px à 50px */
+    }
+}
+
+.forecast-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--transition-speed);
+}
+
+.forecast-card:hover {
+    transform: translateY(-5px);
+}
+
+.forecast-date {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.weather-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+}
+
+.temperature {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.weather-description {
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.additional-info {
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.info-label {
+    color: var(--secondary-color);
+}
+
+.info-value {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+/* Error Section */
+#error-section {
+    background-color: rgba(211, 47, 47, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--error-color);
+}
+
+.error-message i {
+    font-size: 2rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--card-background);
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* Utilities */
+.hidden {
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+
+    #forecast-container {
+        grid-template-columns: 1fr;
+    }
+
+    #coordinates-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    #search-section, .forecast-card {
+        padding: 1rem;
+    }
+
+    #city-name {
+        font-size: 1.5rem;
+    }
+}
+
+/* Wind Direction Icon */
+.wind-direction-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wind-arrow {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+    <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body id="top">
+    <header id="main-header">
+        <div class="container header-content">
+            <div class="logo-container">
+                <a href="#top" id="logo-link">
+                    <img src="logo.png" alt="Instant Weather Logo" class="logo">
+                </a>
+            </div>
+            <h1>Instant Weather</h1>
+            <button id="darkModeToggle" aria-label="Activer/désactiver le mode sombre">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="search-section">
+            <form id="weather-form">
+                <div class="input-group">
+                    <label for="city">Ville</label>
+                    <input type="text" id="city" placeholder="Entrez le nom d'une ville" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="days-slider">Nombre de jours (1-7)</label>
+                    <div class="slider-container">
+                        <input type="range" id="days-slider" min="1" max="7" value="3" aria-valuemin="1" aria-valuemax="7" aria-valuenow="3">
+                        <div class="slider-value"><span id="days-value">3</span> jours</div>
+                    </div>
+                </div>
+                
+                <fieldset>
+                    <legend>Informations supplémentaires</legend>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="latitude" name="additional-info" value="latitude">
+                            <label for="latitude">Latitude</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="longitude" name="additional-info" value="longitude">
+                            <label for="longitude">Longitude</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="rainfall" name="additional-info" value="rainfall">
+                            <label for="rainfall">Cumul de pluie (mm)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="wind-speed" name="additional-info" value="wind-speed">
+                            <label for="wind-speed">Vent moyen (km/h)</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="wind-direction" name="additional-info" value="wind-direction">
+                            <label for="wind-direction">Direction du vent (°)</label>
+                        </div>
+                    </div>
+                </fieldset>
+                
+                <button type="submit" class="submit-btn">Rechercher</button>
+            </form>
+        </section>
+
+        <section id="results-section" class="hidden">
+            <div id="location-info">
+                <h2 id="city-name"></h2>
+                <div id="coordinates-container" class="hidden">
+                    <div id="latitude-display"></div>
+                    <div id="longitude-display"></div>
+                </div>
+            </div>
+
+            <div id="map-container" class="hidden">
+                <div id="map"></div>
+            </div>
+
+            <div id="forecast-container"></div>
+        </section>
+
+        <section id="error-section" class="hidden">
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i>
+                <p id="error-text"></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Instant Weather - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
