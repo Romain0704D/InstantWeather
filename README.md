@@ -1,6 +1,6 @@
 # InstantWeather
 
-InstantWeather est un site internet qui permet d'obtenir rapidement et facilement des informations météorologiques pour n'importe quelle ville ou localisation dans le monde. Ce projet utilise principalement du JavaScript, du CSS et du HTML pour offrir une expérience utilisateur fluide et réactive.
+InstantWeather est un site internet qui permet d'obtenir rapidement et facilement des informations météorologiques pour n'importe quelle ville ou localisation en France. Ce projet utilise principalement du JavaScript, du CSS et du HTML pour offrir une expérience utilisateur fluide et réactive.
 
 ## Fonctionnalités
 
