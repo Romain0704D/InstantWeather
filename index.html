@@ -10,6 +10,29 @@
     <link rel="icon" href="logo.png" type="image/png">
 </head>
 <body id="top">
+    <!-- Ecran de chargement animé SANS le texte "Chargement" -->
+    <div id="loading-screen">
+        <div class="weather-animation">
+            <div class="sun">
+                <div class="sun-core"></div>
+                <div class="sun-rays">
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                    <div class="ray"></div>
+                </div>
+            </div>
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <!-- Texte retiré ici -->
+        </div>
+    </div>
+
     <header id="main-header">
         <div class="container header-content">
             <div class="logo-container">
@@ -24,12 +47,15 @@
         </div>
     </header>
 
-    <main class="container">
+    <main class="container" id="main-content">
         <section id="search-section">
             <form id="weather-form">
                 <div class="input-group">
                     <label for="city">Ville</label>
-                    <input type="text" id="city" placeholder="Entrez le nom d'une ville" required>
+                    <div class="search-bar-wrapper" style="position:relative;">
+                      <input type="text" id="city" placeholder="Entrez le nom d'une ville ou le code postal" required>
+                      <div id="search-history-dropdown" class="search-history-dropdown hidden"></div>
+                    </div>
                 </div>
                 
                 <div class="input-group">
@@ -42,28 +68,18 @@
                 
                 <fieldset>
                     <legend>Informations supplémentaires</legend>
-                    <div class="checkbox-group">
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="latitude" name="additional-info" value="latitude">
-                            <label for="latitude">Latitude</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="longitude" name="additional-info" value="longitude">
-                            <label for="longitude">Longitude</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="rainfall" name="additional-info" value="rainfall">
-                            <label for="rainfall">Cumul de pluie (mm)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="wind-speed" name="additional-info" value="wind-speed">
-                            <label for="wind-speed">Vent moyen (km/h)</label>
-                        </div>
-                        <div class="checkbox-item">
-                            <input type="checkbox" id="wind-direction" name="additional-info" value="wind-direction">
-                            <label for="wind-direction">Direction du vent (°)</label>
-                        </div>
+                    <div class="info-btn-group">
+                        <button type="button" class="info-btn" data-info="latitude" id="latitude-btn">Latitude</button>
+                        <button type="button" class="info-btn" data-info="longitude" id="longitude-btn">Longitude</button>
+                        <button type="button" class="info-btn" data-info="rainfall" id="rainfall-btn">Cumul de pluie (mm)</button>
+                        <button type="button" class="info-btn" data-info="wind-speed" id="wind-speed-btn">Vent moyen (km/h)</button>
+                        <button type="button" class="info-btn" data-info="wind-direction" id="wind-direction-btn">Direction du vent (°)</button>
                     </div>
+                    <input type="hidden" id="latitude" name="additional-info" value="off">
+                    <input type="hidden" id="longitude" name="additional-info" value="off">
+                    <input type="hidden" id="rainfall" name="additional-info" value="off">
+                    <input type="hidden" id="wind-speed" name="additional-info" value="off">
+                    <input type="hidden" id="wind-direction" name="additional-info" value="off">
                 </fieldset>
                 
                 <button type="submit" class="submit-btn">Rechercher</button>
